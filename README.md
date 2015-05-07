@@ -1,69 +1,36 @@
-Symfony Standard Edition
-========================
+## [Symfony](http://symfony.com/) for [Google App Engine](https://cloud.google.com/appengine/)
+This repository contains a modified Symfony Standard Edition Starter app for Google App Engine.
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
+## Installation
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+1. Clone the repository with
 
-What's inside?
---------------
+        git clone https://github.com/GoogleCloudPlatform/Symfony.git
 
-The Symfony Standard Edition is configured with the following defaults:
+1. Follow the [PHP Tutorial](https://cloud.google.com/appengine/docs/php/gettingstarted/introduction) if you have never used App Engine before.
 
-  * An AppBundle you can use to start coding;
+1. Create a CloudSQL instance based on [these instructions](https://cloud.google.com/appengine/docs/php/cloud-sql/#create). Also [create a database](https://cloud.google.com/sql/docs/create-database) for storing the [Doctrine ORM](http://symfony.com/doc/current/book/doctrine.html).
 
-  * Twig as the only configured template engine;
+1. Replace `<project-id>` in [app.yaml](app.yaml) with the corresponding value for your Google Cloud project. By default, the app will store the cache files and logs at a specific location in the app's default GCS bucket. This can be changed by altering the `CACHE_DIR` and `LOG_DIR` environmental variables in [app.yaml](app.yaml).
 
-  * Doctrine ORM/DBAL;
+1. Replace `<project-id>`, `<instance-id>` and `<your-database>` in [config_prod.yml](app/config/config_prod.yml) with the corresponding value for your Google Cloud project and ClouSQL instance.
 
-  * Swiftmailer;
+1. Install [composer](https://getcomposer.org/) if you haven't done so previously. Run the following command from your project root to install all required dependencies
 
-  * Annotations enabled for everything.
+        php composer.phar install
 
-It comes pre-configured with the following bundles:
+1. [Deploy your app](https://cloud.google.com/appengine/docs/php/gettingstarted/uploading)
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+1. Access your app using http://your_app_id.appspot.com/app/example and you should see Symfony's default welcome page. Note that it may take a while to load the page for the first time as the framework generates and writes the cache files to GCS.
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+## Contributing
+Have a patch that will benefit this project? Awesome! Follow these steps to have it accepted.
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+1. Please sign our [Contributor License Agreement](CONTRIB.md).
+1. Fork this Git repository and make your changes.
+1. Create a Pull Request
+1. Incorporate review feedback to your changes.
+1. Accepted!
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
-    library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  http://symfony.com/doc/2.6/book/installation.html
-[6]:  http://symfony.com/doc/2.6/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  http://symfony.com/doc/2.6/book/doctrine.html
-[8]:  http://symfony.com/doc/2.6/book/templating.html
-[9]:  http://symfony.com/doc/2.6/book/security.html
-[10]: http://symfony.com/doc/2.6/cookbook/email.html
-[11]: http://symfony.com/doc/2.6/cookbook/logging/monolog.html
-[12]: http://symfony.com/doc/2.6/cookbook/assetic/asset_management.html
-[13]: http://symfony.com/doc/2.6/bundles/SensioGeneratorBundle/index.html
+## License
+All files in this repository are under the [MIT License](LICENSE) unless noted otherwise.
