@@ -5,7 +5,7 @@ This repository contains a modified Symfony Standard Edition Starter app for Goo
 
 1. Clone the repository with
 
-        git clone https://github.com/GoogleCloudPlatform/Symfony.git
+        git clone https://github.com/GoogleCloudPlatform/symfony-standard.git
 
 1. Follow the [PHP Tutorial](https://cloud.google.com/appengine/docs/php/gettingstarted/introduction) if you have never used App Engine before.
 
