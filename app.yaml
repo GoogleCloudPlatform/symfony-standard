@@ -8,6 +8,7 @@ threadsafe: true
 handlers:
 - url: /clear_cache
   script: clear_cache.php
+  login: admin
 
 - url: /.*
   script: web/app.php
