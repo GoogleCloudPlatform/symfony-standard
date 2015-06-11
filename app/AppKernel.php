@@ -5,10 +5,9 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
-    public function init()
+    public function __construct($environment, $debug)
     {
-        // Symfony assumes libxml entity loader is enabled by default.
-        libxml_disable_entity_loader(false);
+        parent::__construct($environment, $debug);
 
         // Symfony console requires timezone to be set manually.
         if (!ini_get('date.timezone')) {
@@ -18,8 +17,6 @@ class AppKernel extends Kernel
         // Enable optimistic caching for GCS.
         $options = ['gs' => ['enable_optimsitic_cache' => true]];
         stream_context_set_default($options);
-
-        parent::init();
     }
 
     public function getCacheDir()
