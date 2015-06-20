@@ -8,7 +8,7 @@
     "support": {
         "issues": "https://github.com/GoogleCloudPlatform/symfony-standard/issues",
         "forum": "https://groups.google.com/forum/#!forum/google-appengine"
-    }
+    },
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
